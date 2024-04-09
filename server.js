@@ -1,5 +1,5 @@
 // import modules
-
+import { students } from "./data/students-data.js"
 import express from 'express'
 
 // create Express app
@@ -22,6 +22,17 @@ app.get('/', function(req, res) {
 app.get('/home', function(req, res) {
   res.render('home')
 })
+
+app.get("/students", function(req, res) {
+  res.render("students/index", {
+    students: students
+  })
+})
+
+app.get('/', function(req, res) {
+  res.redirect('/home')
+})
+
 
 
 
